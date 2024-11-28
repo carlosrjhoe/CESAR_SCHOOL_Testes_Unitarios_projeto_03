@@ -4,11 +4,7 @@ class TestRestaurant:
         """Testa a descrição do restaurante"""
         restaurantTest = setUp
         resultado = restaurantTest.describe_restaurant()
-        esperado = (
-            "Esse restaturante chama Bolos tipicos and serve Bolos tipicos."
-            "Esse restaturante está servindo 0 consumidores "
-            "desde que está aberto."
-        )
+        esperado = ("Este restaurante se chama Bolos Da May")
         assert resultado == esperado
 
     # def test_open_restaurant(self):

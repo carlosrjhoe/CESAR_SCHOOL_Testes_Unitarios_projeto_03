@@ -8,10 +8,19 @@ class Restaurant:
         self.open = False
 
     def describe_restaurant(self):
-        """Imprima uma descrição simples da instância do restaurante."""
-        result = f"Esse restaturante chama {self.cuisine_type} and serve {self.cuisine_type}."
-        result += f"Esse restaturante está servindo {self.number_served} consumidores desde que está aberto."
-        return result
+        """Imprima uma descrição simples da instância do restaurante
+        
+            Erros identificados:
+                Erros de digitação, Mensagem confusa, Uso de variáveis
+
+            Pontos de melhoria:
+                Separar a lógica de construção do texto em métodos auxiliares
+                ou variáveis ​​para maior clareza e modularidade.
+                Evitar redundâncias e construa frases mais
+                naturais em português
+        """
+        
+        return f"Este restaurante se chama {self.restaurant_name}"
 
     def open_restaurant(self):
         """Imprima uma mensagem indicando que o
