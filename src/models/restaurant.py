@@ -24,13 +24,21 @@ class Restaurant:
 
     def open_restaurant(self):
         """Imprima uma mensagem indicando que o
-        restaurante está aberto para negócios."""
+        restaurante está aberto para negócios.
+        
+        Erros identificados:
+            Erro de digitação na docstring, Mensagem Retornada,
+            Lógica Repetitiva, Tipo de Retorno Não Especificado,
+            Responsabilidade Única.
+
+        Pontos de melhoria:
+            Padronização das Mensagens, Melhoria da Docstring.
+        """
         if not self.open:
             self.open = True
-            self.number_served = 0
-            return f"{self.restaurant_name} agora está aberto!"
+            return f"{self.restaurant_name} agora está aberto."
         else:
-            return f"{self.restaurant_name} já está aberto!"
+            return f"{self.restaurant_name} agora está fechado."
 
     def close_restaurant(self):
         """Imprima uma mensagem indicando que o restaurante está
