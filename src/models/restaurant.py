@@ -9,17 +9,17 @@ class Restaurant:
 
     def describe_restaurant(self):
         """Imprima uma descrição simples da instância do restaurante
-        
-            Erros identificados:
-                Erros de digitação, Mensagem confusa, Uso de variáveis
 
-            Pontos de melhoria:
-                Separar a lógica de construção do texto em métodos auxiliares
-                ou variáveis ​​para maior clareza e modularidade.
-                Evitar redundâncias e construa frases mais
-                naturais em português
+        Erros identificados:
+            Erros de digitação, Mensagem confusa, Uso de variáveis
+
+        Pontos de melhoria:
+            Separar a lógica de construção do texto em métodos auxiliares
+            ou variáveis ​​para maior clareza e modularidade.
+            Evitar redundâncias e construa frases mais
+            naturais em português
         """
-        
+
         return f"Este restaurante se chama {self.restaurant_name}"
 
     def open_restaurant(self):
