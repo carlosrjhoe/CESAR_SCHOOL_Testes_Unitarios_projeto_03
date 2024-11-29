@@ -83,8 +83,19 @@ class Restaurant:
         return f"{self.restaurant_name} está fechado!"
 
     def increment_number_served(self, more_customers):
-        """Aumenta número total de clientes atendidos por este restaurante."""
+        """Aumenta número total de clientes atendidos por este restaurante.
+
+        Erros identificados:
+            Mensagem confusa e uso de variáveis erradas.
+
+        Pontos de melhoria:
+            Separar a lógica,  Ajustar a construção da frase
+            para soar mais natural e Tratamento de casos extremos."""
+
         if self.open:
-            self.number_served = more_customers
+            if more_customers < 0:
+                return "O número de clientes não pode ser negativo!"
+            self.number_served += more_customers
+            return f"Total de {self.number_served} clientes atendidos!"
         else:
-            return f"{self.restaurant_name} está fechado!"
+            return f"O restaurante {self.restaurant_name} está fechado!"

@@ -55,5 +55,5 @@ class TestRestaurant:
         resultado = restaurantTest.set_number_served(total_customers)
         assert resultado == msg_esperada
 
-    # def test_increment_number_served(self):
-    #     assert False
+    def test_increment_number_served(self):
+        assert False
