@@ -5,8 +5,8 @@ class TestRestaurant:
 
     def test_describe_restaurant(self, setUp):
         """Testa a descrição do restaurante"""
-        restaurantTest = setUp
-        resultado = restaurantTest.describe_restaurant()
+        object_restaurant = setUp
+        resultado = object_restaurant.describe_restaurant()
         esperado = "Este restaurante se chama Bolos Da May"
         assert resultado == esperado
 
@@ -19,9 +19,9 @@ class TestRestaurant:
     )
     def test_open_restaurant(self, setUp, estado_inicial, esperado):
         """Testa restaurante está aberto para negócios."""
-        restaurantTest = setUp
-        restaurantTest.open = estado_inicial
-        resultado = restaurantTest.open_restaurant()
+        object_restaurant = setUp
+        object_restaurant.open = estado_inicial
+        resultado = object_restaurant.open_restaurant()
         assert resultado == esperado
 
     @pytest.mark.parametrize(
@@ -33,9 +33,9 @@ class TestRestaurant:
     )
     def test_close_restaurant(self, setUp, estado_inicial, esperado):
         """Testa restaurante está fechado para negócios."""
-        restaurantTest = setUp
-        restaurantTest.open = estado_inicial
-        resultado = restaurantTest.close_restaurant()
+        object_restaurant = setUp
+        object_restaurant.open = estado_inicial
+        resultado = object_restaurant.close_restaurant()
         assert resultado == esperado
 
     @pytest.mark.parametrize(
@@ -50,10 +50,23 @@ class TestRestaurant:
     def test_set_number_served(
         self, setUp, estado_inicial, total_customers, msg_esperada
     ):
-        restaurantTest = setUp
-        restaurantTest.open = estado_inicial
-        resultado = restaurantTest.set_number_served(total_customers)
+        object_restaurant = setUp
+        object_restaurant.open = estado_inicial
+        resultado = object_restaurant.set_number_served(total_customers)
         assert resultado == msg_esperada
 
-    def test_increment_number_served(self):
-        assert False
+    @pytest.mark.parametrize(
+        "estado_inicial, more_customers, msg_esperada",
+        [
+            (True, 50, "Total de 50 clientes atendidos!"),
+            (True, -10, "O número de clientes não pode ser negativo!"),
+            (False, 0, "O restaurante Bolos Da May está fechado!"),
+        ],
+    )
+    def test_increment_number_served(
+        self, setUp, estado_inicial, more_customers, msg_esperada
+    ):
+        object_restaurant = setUp
+        object_restaurant.open = estado_inicial
+        resultado = object_restaurant.increment_number_served(more_customers)
+        assert resultado == msg_esperada
