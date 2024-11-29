@@ -24,11 +24,18 @@ class TestRestaurant:
         resultado = restaurantTest.open_restaurant()
         assert resultado == esperado
 
-    def test_close_restaurant(self, setUp):
+    @pytest.mark.parametrize(
+        "estado_inicial, esperado",
+        [
+            (True, "Bolos Da May agora está fechado!"),
+            (False, "Bolos Da May já está fechado."),
+        ],
+    )
+    def test_close_restaurant(self, setUp, estado_inicial, esperado):
         """Testa restaurante está fechado para negócios."""
         restaurantTest = setUp
+        restaurantTest.open = estado_inicial
         resultado = restaurantTest.close_restaurant()
-        esperado = "Bolos Da May já está fechado."
         assert resultado == esperado
 
     # def test_set_number_served(self):
