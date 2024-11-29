@@ -43,14 +43,14 @@ class Restaurant:
     def close_restaurant(self):
         """Imprima uma mensagem indicando que o restaurante está
         fechado para negócios.
-        
+
         Erros identificados:
-            Lógica incorreta ao fechar o restaurante 
+            Lógica incorreta ao fechar o restaurante
             (`self.open` é redefinido como `True` em vez de `False`).
             Reseta `self.number_served` sem necessidade.
 
         Pontos de melhoria:
-            Corrigir a lógica para alterar o estado 
+            Corrigir a lógica para alterar o estado
             do restaurante adequadamente.
             Melhorar a docstring para refletir as mudanças."""
         if self.open:
