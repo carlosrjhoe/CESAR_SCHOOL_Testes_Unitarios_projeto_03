@@ -61,11 +61,26 @@ class Restaurant:
 
     def set_number_served(self, total_customers):
         """Defina o número total de pessoas atendidas por este
-        restaurante até o momento."""
+        restaurante até o momento.
+
+        Erros identificados:
+            Sem validação para `total_customers` ser um número positivo.
+            A lógica não impede valores negativos ou inválidos.
+            Retorno inconsistente quando o restaurante está fechado.
+
+        Pontos de melhoria:
+            Validar que `total_customers` seja um inteiro positivo.
+            Melhorar a mensagem de erro para refletir 
+            adequadamente o problema."""
+        if not isinstance(total_customers, int) or total_customers < 0:
+            return "O número de clientes deve ser um inteiro positivo."
         if self.open:
             self.number_served = total_customers
-        else:
-            return f"{self.restaurant_name} está fechado!"
+            return (
+                f"O restaurante {self.restaurant_name} "
+                f"já atendeu {self.number_served} clientes."
+            )
+        return f"{self.restaurant_name} está fechado!"
 
     def increment_number_served(self, more_customers):
         """Aumenta número total de clientes atendidos por este restaurante."""
