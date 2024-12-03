@@ -15,9 +15,9 @@ class IceCreamStand(Restaurant):
     def flavors_available(self):
         """Percorra a lista de sabores disponíveis e imprima."""
         if self.flavors:
-            result = "\nNo momento temos os seguintes sabores de sorvete disponíveis:"
+            result = "No momento temos os seguintes sabores:"
             for flavor in self.flavors:
-                result += f"\t-{flavor}"
+                result += f" {flavor}"
             return result
         else:
             return "Estamos sem estoque atualmente!"
