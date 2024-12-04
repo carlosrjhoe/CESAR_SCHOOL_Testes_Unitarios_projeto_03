@@ -23,14 +23,28 @@ class IceCreamStand(Restaurant):
             return "Estamos sem estoque atualmente!"
 
     def find_flavor(self, flavor):
-        """Verifica se o sabor informado está disponível."""
-        if self.flavors:
-            if flavor in self.flavors:
-                return f"Temos no momento {self.flavors}!"
-            else:
-                return f"Não temos no momento {self.flavors}!"
-        else:
+        """Verifica se o sabor informado está disponível.
+
+        Erros identificados:
+            Mensagens confusas e um pouco específicas para o sabor pesquisado.
+            Retorno consumista de uma lista completa
+            ( self.flavors) em vez do sabor pesquisado.
+            Redundância na lógica condicional ao verificar
+            duas vezes se existe uma lista de sabores.
+
+        Pontos de melhoria:
+            Ajustar as mensagens para serem mais específicas e naturais,
+            mencionando diretamente o sabor pesquisado.
+            Separar a lógica de construção de mensagens em
+            condições mais claras e enxutas.
+            Reduzir redundâncias ao verificar diretamente a
+            presença do sabor com in."""
+
+        if not self.flavors:
             return "Estamos sem estoque atualmente!"
+        if flavor in self.flavors:
+            return f"Temos no momento o sabor {flavor}!"
+        return f"Não temos no momento o sabor {flavor}!"
 
     def add_flavor(self, flavor):
         """Add o sabor informado ao estoque."""
