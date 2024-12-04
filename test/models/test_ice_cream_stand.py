@@ -45,6 +45,25 @@ class TestIceCreamStand:
         resultado = object_flavors.find_flavor(sabor_para_verificar)
         assert resultado == esperado
 
-
-#     def test_add_flavor(self):
-#         assert False
+    @pytest.mark.parametrize(
+        "sabores, sabor_para_verificar, esperado",
+        [
+            (
+                ["chocolate", "baunilha"],
+                "morango",
+                "morango adicionado ao estoque!",
+            ),
+            (
+                ["chocolate", "baunilha"],
+                "chocolate",
+                "\nSabor já disponível!",
+            ),
+            ([], "morango", "morango adicionado ao estoque!"),
+            (None, "morango", "morango adicionado ao estoque!"),
+        ],
+    )
+    def test_add_flavor(self, setUp_ice_cream, sabores, sabor_para_verificar, esperado):
+        object_flavors = setUp_ice_cream
+        object_flavors.flavors = sabores
+        resultado = object_flavors.add_flavor(sabor_para_verificar)
+        assert resultado == esperado
