@@ -11,7 +11,7 @@ class TestIceCreamStand:
                 "No momento temos os seguintes sabores: macaxeira fubá",
             ),
             ([], "Estamos sem estoque atualmente!"),
-            (["chocolate"], "No momento temos os seguintes sabores: chocolate"),
+            (["chocolate"], "No momento temos os seguintes sabores: chocolate")
         ],
     )
     def test_flavors_available(self, setUp_ice_cream, sabores, esperado):
