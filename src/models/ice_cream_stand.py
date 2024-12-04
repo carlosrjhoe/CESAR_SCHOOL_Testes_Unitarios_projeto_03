@@ -47,12 +47,21 @@ class IceCreamStand(Restaurant):
         return f"Não temos no momento o sabor {flavor}!"
 
     def add_flavor(self, flavor):
-        """Add o sabor informado ao estoque."""
-        if self.flavors:
-            if flavor in self.flavors:
-                return "\nSabor já disponivel!"
-            else:
-                self.flavors.append(flavor)
-                return f"{flavor} adicionado ao estoque!"
-        else:
-            return "Estamos sem estoque atualmente!"
+        """Add o sabor informado ao estoque.
+
+        Erros identificados:
+            Erro de digitação, Mensagem confusa:
+            "Estamos sem estoque atualmente!".
+            Duplicação lógica: Condições podem ser
+            simplificadas para evitar redundância.
+
+        Pontos de melhoria:
+            Corrigir mensagens.
+            Melhorar a estrutura lógica
+            Melhorar a legibilidade."""
+        if not self.flavors:
+            self.flavors = []
+        if flavor in self.flavors:
+            return "\nSabor já disponível!"
+        self.flavors.append(flavor)
+        return f"{flavor} adicionado ao estoque!"

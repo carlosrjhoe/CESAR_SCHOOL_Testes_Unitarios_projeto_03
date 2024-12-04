@@ -12,5 +12,6 @@ testrestaurante = Restaurant("Bolos da May", "Bolos tipicos")
 test_acecream = IceCreamStand("Bolos da May", "Bolos tipicos",
                               ["macaxeira", "fubá"])
 # print(test_acecream.flavors_available())
-print(test_acecream.find_flavor("fubá"))
+# print(test_acecream.find_flavor("fubá"))
+print(test_acecream.add_flavor("fuba"))
 # print(test_acecream.find_flavor("pé de moleque"))

@@ -37,7 +37,9 @@ class TestIceCreamStand:
             (None, "baunilha", "Estamos sem estoque atualmente!"),
         ],
     )
-    def test_find_flavor(self, setUp_ice_cream, sabores, sabor_para_verificar, esperado):
+    def test_find_flavor(
+        self, setUp_ice_cream, sabores, sabor_para_verificar, esperado
+    ):
         object_flavors = setUp_ice_cream
         object_flavors.flavors = sabores
         resultado = object_flavors.find_flavor(sabor_para_verificar)
