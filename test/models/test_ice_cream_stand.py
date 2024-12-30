@@ -14,8 +14,8 @@ class TestIceCreamStand:
             (["chocolate"], "No momento temos os seguintes sabores: chocolate")
         ],
     )
-    def test_flavors_available(self, setUp_ice_cream, sabores, esperado):
-        object_flavors = setUp_ice_cream
+    def test_flavors_available(self, setup_ice_cream, sabores, esperado):
+        object_flavors = setup_ice_cream
         object_flavors.flavors = sabores
         resultado = object_flavors.flavors_available()
         assert resultado == esperado
@@ -38,9 +38,9 @@ class TestIceCreamStand:
         ],
     )
     def test_find_flavor(
-        self, setUp_ice_cream, sabores, sabor_para_verificar, esperado
+        self, setup_ice_cream, sabores, sabor_para_verificar, esperado
     ):
-        object_flavors = setUp_ice_cream
+        object_flavors = setup_ice_cream
         object_flavors.flavors = sabores
         resultado = object_flavors.find_flavor(sabor_para_verificar)
         assert resultado == esperado
@@ -63,9 +63,9 @@ class TestIceCreamStand:
         ],
     )
     def test_add_flavor(
-        self, setUp_ice_cream, sabores, sabor_para_verificar, esperado
+        self, setup_ice_cream, sabores, sabor_para_verificar, esperado
     ):
-        object_flavors = setUp_ice_cream
+        object_flavors = setup_ice_cream
         object_flavors.flavors = sabores
         resultado = object_flavors.add_flavor(sabor_para_verificar)
         assert resultado == esperado

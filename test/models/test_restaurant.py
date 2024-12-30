@@ -3,9 +3,9 @@ import pytest
 
 class TestRestaurant:
 
-    def test_describe_restaurant(self, setUp):
+    def test_describe_restaurant(self, setup):
         """Testa a descrição do restaurante"""
-        object_restaurant = setUp
+        object_restaurant = setup
         resultado = object_restaurant.describe_restaurant()
         esperado = "Este restaurante se chama Bolos Da May"
         assert resultado == esperado
@@ -17,9 +17,9 @@ class TestRestaurant:
             (True, "Bolos Da May já está aberto!"),
         ],
     )
-    def test_open_restaurant(self, setUp, estado_inicial, esperado):
+    def test_open_restaurant(self, setup, estado_inicial, esperado):
         """Testa restaurante está aberto para negócios."""
-        object_restaurant = setUp
+        object_restaurant = setup
         object_restaurant.open = estado_inicial
         resultado = object_restaurant.open_restaurant()
         assert resultado == esperado
@@ -31,9 +31,9 @@ class TestRestaurant:
             (False, "Bolos Da May já está fechado."),
         ],
     )
-    def test_close_restaurant(self, setUp, estado_inicial, esperado):
+    def test_close_restaurant(self, setup, estado_inicial, esperado):
         """Testa restaurante está fechado para negócios."""
-        object_restaurant = setUp
+        object_restaurant = setup
         object_restaurant.open = estado_inicial
         resultado = object_restaurant.close_restaurant()
         assert resultado == esperado
@@ -48,9 +48,9 @@ class TestRestaurant:
         ],
     )
     def test_set_number_served(
-        self, setUp, estado_inicial, total_customers, msg_esperada
+        self, setup, estado_inicial, total_customers, msg_esperada
     ):
-        object_restaurant = setUp
+        object_restaurant = setup
         object_restaurant.open = estado_inicial
         resultado = object_restaurant.set_number_served(total_customers)
         assert resultado == msg_esperada
@@ -64,9 +64,9 @@ class TestRestaurant:
         ],
     )
     def test_increment_number_served(
-        self, setUp, estado_inicial, more_customers, msg_esperada
+        self, setup, estado_inicial, more_customers, msg_esperada
     ):
-        object_restaurant = setUp
+        object_restaurant = setup
         object_restaurant.open = estado_inicial
         resultado = object_restaurant.increment_number_served(more_customers)
         assert resultado == msg_esperada
